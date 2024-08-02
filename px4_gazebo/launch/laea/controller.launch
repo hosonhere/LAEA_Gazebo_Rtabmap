@@ -1,0 +1,27 @@
+<launch>
+    <!-- 发布 map 到 base_link 的静态变换 -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="tf_map2base"
+        args="0 0 0 0 0 0 map base_link" />
+
+    <!-- 发布 base_link 到 camera_link 的静态变换 -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="tf_base2camera"
+        args="0.12 0 0 -1.5708 0 -1.5708 base_link camera_link" />
+        
+
+    <!-- 确认其他参数和节点配置正确 -->
+    <rosparam param="frame_id">map</rosparam>
+    <rosparam param="child_frame_id">camera_link</rosparam>
+
+    <arg name="pose_topic_out" value="/mavros/camera/pose"/>
+    <arg name="odom_topic_out" value="/mavros/camera/odom"/>
+    <node pkg="px4_gazebo" type="tf2topic_tf" name="tf2topic_tf" output="screen">
+        <remap from="pose_out" to="$(arg pose_topic_out)"/>
+        <remap from="odom_out" to="$(arg odom_topic_out)"/>
+    </node>
+
+    <!-- Trajectory message type conversion -->
+    <include file="$(find px4_gazebo)/launch/laea/traj_transfer.launch" />
+
+    <!-- controller -->
+    <include file="$(find px4_gazebo)/launch/laea/pure_track.launch" />
+</launch>

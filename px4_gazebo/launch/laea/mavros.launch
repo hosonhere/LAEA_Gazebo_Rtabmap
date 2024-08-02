@@ -1,0 +1,12 @@
+<launch>
+    <!-- MAVROS -->
+    <arg name="ID" value="0"/>
+    <arg name="fcu_url" default="udp://:14540@localhost:14557"/>
+    <arg name="respawn_mavros" default="false"/>
+    <include file="/home/hoson/mavros_ws/src/mavros/mavros/launch/px4.launch">
+        <arg name="fcu_url" value="$(arg fcu_url)"/>
+        <arg name="gcs_url" value=""/>
+        <arg name="tgt_system" value="$(eval 1 + arg('ID'))"/>
+        <arg name="tgt_component" value="1"/>
+    </include>
+</launch>
