@@ -1,0 +1,8 @@
+prefix=/home/hoson/laea_rtabmap/devel
+
+Name: trajectory_publisher
+Description: Description of trajectory_publisher
+Version: 0.0.0
+Cflags: -I/home/hoson/laea_rtabmap/src/LAEA_Gazebo_Rtabmap/mavros_controllers/trajectory_publisher/include
+Libs: -L${prefix}/lib 
+Requires: roscpp rospy std_msgs nav_msgs geometry_msgs tf mav_planning_msgs controller_msgs mavros_msgs

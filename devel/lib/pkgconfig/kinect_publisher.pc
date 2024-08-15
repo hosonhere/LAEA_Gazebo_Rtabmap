@@ -1,0 +1,8 @@
+prefix=/home/hoson/laea_rtabmap/devel
+
+Name: kinect_publisher
+Description: Description of kinect_publisher
+Version: 0.0.1
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

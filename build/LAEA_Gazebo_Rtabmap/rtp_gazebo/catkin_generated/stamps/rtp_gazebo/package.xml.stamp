@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>rtp_gazebo</name>
+  <version>0.0.1</version>
+  <description>The rtp_gazebo package</description>
+  
+  <maintainer email="your_email@example.com">Your Name</maintainer>
+  <license>BSD</license>
+
+  <author email="your_email@example.com">Your Name</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- 依赖项 -->
+  <depend>roscpp</depend>
+  <depend>rospy</depend>
+  <depend>message_filters</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>cv_bridge</depend>
+  <depend>image_transport</depend>
+  
+  <!-- OpenCV -->
+  <depend>opencv</depend>
+
+  <!-- PCL -->
+  <depend>pcl_ros</depend>
+  <depend>pcl_conversions</depend>
+  
+  <!-- Boost -->
+  <depend>boost</depend>
+  
+  <!-- Gazebo -->
+  <depend>gazebo_ros</depend>
+
+  <!-- 系统依赖项 -->
+  <build_depend>libavdevice-dev</build_depend>
+  <build_depend>libavfilter-dev</build_depend>
+  <build_depend>libavformat-dev</build_depend>
+  <build_depend>libavcodec-dev</build_depend>
+  <build_depend>libswresample-dev</build_depend>
+  <build_depend>libswscale-dev</build_depend>
+  <build_depend>libavutil-dev</build_depend>
+
+  <build_export_depend>libavdevice-dev</build_export_depend>
+  <build_export_depend>libavfilter-dev</build_export_depend>
+  <build_export_depend>libavformat-dev</build_export_depend>
+  <build_export_depend>libavcodec-dev</build_export_depend>
+  <build_export_depend>libswresample-dev</build_export_depend>
+  <build_export_depend>libswscale-dev</build_export_depend>
+  <build_export_depend>libavutil-dev</build_export_depend>
+
+  <exec_depend>libavdevice-dev</exec_depend>
+  <exec_depend>libavfilter-dev</exec_depend>
+  <exec_depend>libavformat-dev</exec_depend>
+  <exec_depend>libavcodec-dev</exec_depend>
+  <exec_depend>libswresample-dev</exec_depend>
+  <exec_depend>libswscale-dev</exec_depend>
+  <exec_depend>libavutil-dev</exec_depend>
+
+  <export>
+    <architecture_independent/>
+  </export>
+</package>

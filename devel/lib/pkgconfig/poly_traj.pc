@@ -1,0 +1,8 @@
+prefix=/home/hoson/laea_rtabmap/devel
+
+Name: poly_traj
+Description: Description of poly_traj
+Version: 0.0.0
+Cflags: -I/home/hoson/laea_rtabmap/src/LAEA_Gazebo_Rtabmap/laea_planner/poly_traj/include
+Libs: -L${prefix}/lib -lpoly_traj
+Requires: 

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/89/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/eventemitter2@6.4/lib/eventemitter2.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/roslib@1/build/roslib.js"></script>
+<script src="/home/hoson/ros3djs/build/ros3d.min.js"></script>
+
+<!--
+1. Install rosbridge_server and tf2_web_republisher
+2. modify the options in the javascript below
+    (1) fixedFrame in tfClient => your tf topic
+    (2) topic in cloudClient => your pointfloud topic
+    (3) topic in odometryClient => your odometry topic
+3. setup the website (via liveserver extension of vscode or anything you prefer)
+4. follow the instructions of the website
+5. pray that it works \|/
+
+Document of ros3djs: https://robotwebtools.github.io/ros3djs/
+-->
+
+<script>
+  /**
+   * Setup all visualization elements when the page is loaded.
+   */
+  var cloudClient;
+  var poseClient;
+
+  var odometryClient;
+  var pointClient;
+  function init() {
+    // Connect to ROS.
+
+    var ros = new ROSLIB.Ros({
+        url : 'ws://localhost:9090'
+    });
+
+    ros.on('connection', function() {
+        console.log('Connected to websocket server.');
+    });
+
+    ros.on('error', function(error) {
+        console.log('Error connecting to websocket server: ', error);
+    });
+
+    ros.on('close', function() {
+        console.log('Connection to websocket server closed.');
+    });
+
+    // Create the main viewer.
+    var viewer = new ROS3D.Viewer({
+      divID : 'viewer',
+      width : 800,
+      height : 600,
+      antialias : true
+    });
+
+    viewer.camera.position.set(0, 0, 100);  // 视角拉远，看看是否可以看到点云
+    viewer.camera.lookAt(new THREE.Vector3(0, 0, 0));
+
+    // Setup a client to listen to TFs.
+    var tfClient = new ROSLIB.TFClient({
+      ros : ros,
+      angularThres : 0.01,
+      transThres : 0.01,
+      rate : 10.0,
+      fixedFrame : '/world'  //TODO: fixed frame of the tf
+    });
+
+    cloudClient = new ROS3D.PointCloud2({
+        ros: ros,
+        tfClient: tfClient,
+        rootObject: viewer.scene,
+        topic: '/rtp/pointcloud/map',  // 点云话题
+        material: { size: 0.2 },  // 点的大小
+        colorsrc: 'z',  // 使用 z 字段作为颜色来源
+        colormap: (z) => {
+            // min z : -0.1, max z = 2.3
+            let normalizedZ = (z + 0.1) / 2.4;
+
+            return {
+                r: normalizedZ,     // 红色通道从低 z 值到高 z 值逐渐增加
+                g: 0.0,             // 绿色通道保持为 0
+                b: 1.0 - normalizedZ,  // 蓝色通道从高 z 值到低 z 值逐渐减少
+                a: 1.0              // 不透明
+            };
+        },
+        max_pts: 5000000  // 根据需要调整最大点数
+    });
+
+    cloudClient.subscribe(function(message) {
+        console.log("Received point cloud message:", message);
+        // 这里可以查看 message 中的具体内容
+    });
+
+    // var pointCloudListener = new ROSLIB.Topic({
+    //     ros: ros,
+    //     name: '/sdf_map/occupancy_all',
+    //     messageType: 'sensor_msgs/PointCloud2'
+    // });
+
+    // pointCloudListener.subscribe(function(message) {
+    //     console.log("Received PointCloud2 message:", message);
+    // });
+
+    // Setup a client to listen to geometry_msgs/PoseStamped topic
+
+    poseClient = new ROS3D.Pose({
+        ros: ros,
+        tfClient: tfClient,
+        rootObject: viewer.scene,
+        topic: '/mavros/local_position/pose',
+        color: 0xcc00ff,
+        length: 1.0,  // 坐标轴的长度
+        headLength: 0.3,  // 坐标轴箭头的长度
+        shaftDiameter: 0.1,  // 坐标轴轴体的直径
+        headDiameter: 0.2  // 坐标轴箭头的直径
+    });
+
+    poseClient.subscribe(function(message) {
+        console.log("Received pose message:", message);
+    });
+
+    // var poseListener = new ROSLIB.Topic({
+    //     ros: ros,
+    //     name: '/mavros/local_position/pose',
+    //     messageType: 'geometry_msgs/PoseStamped'
+    // });
+
+    // poseListener.subscribe(function(message) {
+    //     console.log("Received PoseStamped message:", message);
+    // });
+
+
+    // Setup a client to listen to visualization_msgs/Marker
+    // var markerClient = new ROS3D.MarkerClient({
+    //     ros: ros,
+    //     tfClient: tfClient,
+    //     rootObject: viewer.scene,
+    //     topic: 'planning/position_cmd_vis'
+    // });
+
+    // markerClient.on('change', function() {
+    //     console.log("Received marker message:", markerClient);
+    // });
+  }
+</script>
+</head>
+
+<body onload="init()">
+  <h1>SLAM Mapping Monitor</h1>
+  <div id="viewer"></div>
+  <div>
+    <p id="ground_truth"></p>
+    <p id="slam"></p>
+  </div>
+</body>
+</html>
+

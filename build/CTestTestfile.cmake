@@ -1,0 +1,38 @@
+# CMake generated Testfile for 
+# Source directory: /home/hoson/laea_rtabmap/src
+# Build directory: /home/hoson/laea_rtabmap/build
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.
+subdirs("gtest")
+subdirs("LAEA_Gazebo_Rtabmap/mavros_controllers/mavros_controllers")
+subdirs("LAEA_Gazebo_Rtabmap/laea_planner/octomap_mapping/octomap_mapping")
+subdirs("LAEA_Gazebo_Rtabmap/laea_planner/utils/cmake_utils")
+subdirs("LAEA_Gazebo_Rtabmap/laea_planner/utils/lkh_tsp_solver")
+subdirs("LAEA_Gazebo_Rtabmap/laea_planner/plan_env")
+subdirs("LAEA_Gazebo_Rtabmap/laea_planner/bspline")
+subdirs("LAEA_Gazebo_Rtabmap/laea_planner/path_searching")
+subdirs("LAEA_Gazebo_Rtabmap/laea_planner/active_perception")
+subdirs("LAEA_Gazebo_Rtabmap/laea_planner/bspline_opt")
+subdirs("LAEA_Gazebo_Rtabmap/laea_planner/poly_traj")
+subdirs("LAEA_Gazebo_Rtabmap/laea_planner/utils/pose_utils")
+subdirs("LAEA_Gazebo_Rtabmap/laea_planner/utils/quadrotor_msgs")
+subdirs("LAEA_Gazebo_Rtabmap/laea_planner/utils/depthimage_to_laserscan")
+subdirs("LAEA_Gazebo_Rtabmap/laea_planner/utils/ldlidar_stl_ros")
+subdirs("LAEA_Gazebo_Rtabmap/mavros_controllers/controller_msgs")
+subdirs("LAEA_Gazebo_Rtabmap/laea_planner/utils/laserscan_to_pointcloud")
+subdirs("LAEA_Gazebo_Rtabmap/rtabmap/kinect_publisher")
+subdirs("LAEA_Gazebo_Rtabmap/laea_planner/utils/odom_visualization")
+subdirs("LAEA_Gazebo_Rtabmap/laea_planner/octomap_mapping/octomap_server")
+subdirs("LAEA_Gazebo_Rtabmap/px4_gazebo")
+subdirs("LAEA_Gazebo_Rtabmap/rtp")
+subdirs("LAEA_Gazebo_Rtabmap/rtp_gazebo")
+subdirs("LAEA_Gazebo_Rtabmap/laea_planner/utils/multi_map_server")
+subdirs("LAEA_Gazebo_Rtabmap/laea_planner/traj_utils")
+subdirs("LAEA_Gazebo_Rtabmap/laea_planner/plan_manage")
+subdirs("LAEA_Gazebo_Rtabmap/laea_planner/exploration_manager")
+subdirs("LAEA_Gazebo_Rtabmap/mavros_controllers/trajectory_publisher")
+subdirs("LAEA_Gazebo_Rtabmap/laea_planner/utils/uav_utils")
+subdirs("LAEA_Gazebo_Rtabmap/mavros_controllers/geometric_controller")
+subdirs("LAEA_Gazebo_Rtabmap/laea_planner/utils/rviz_plugins")
+subdirs("LAEA_Gazebo_Rtabmap/laea_planner/utils/waypoint_generator")

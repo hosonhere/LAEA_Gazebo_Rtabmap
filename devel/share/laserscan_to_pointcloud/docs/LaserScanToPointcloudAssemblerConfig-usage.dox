@@ -1,0 +1,16 @@
+\subsubsection usage Usage
+\verbatim
+<node name="laserscan_to_pointcloud_assembler" pkg="laserscan_to_pointcloud" type="laserscan_to_pointcloud_assembler">
+  <param name="laser_scan_topics" type="str" value="/tilt_scan+/base_scan" />
+  <param name="pointcloud_publish_topic" type="str" value="assembled_pointcloud" />
+  <param name="number_of_scans_to_assemble_per_cloud" type="int" value="2" />
+  <param name="timeout_for_cloud_assembly" type="double" value="1.0" />
+  <param name="target_frame" type="str" value="map" />
+  <param name="recovery_frame" type="str" value="odom" />
+  <param name="min_range_cutoff_percentage_offset" type="double" value="1.05" />
+  <param name="max_range_cutoff_percentage_offset" type="double" value="0.95" />
+  <param name="include_laser_intensity" type="bool" value="False" />
+  <param name="number_of_tf_queries_for_spherical_interpolation" type="int" value="4" />
+</node>
+\endverbatim
+

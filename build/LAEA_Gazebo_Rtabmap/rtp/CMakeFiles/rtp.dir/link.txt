@@ -1,0 +1,2 @@
+/usr/bin/ar qc /home/hoson/laea_rtabmap/devel/lib/librtp.a  CMakeFiles/rtp.dir/Codec/src/VideoCodec.cpp.o CMakeFiles/rtp.dir/Codec/src/DepthImageCodec.cpp.o CMakeFiles/rtp.dir/Codec/src/PointCloudCodec.cpp.o CMakeFiles/rtp.dir/Codec/src/CameraInfoCodec.cpp.o CMakeFiles/rtp.dir/Codec/src/Data.cpp.o CMakeFiles/rtp.dir/src/Stream.cpp.o CMakeFiles/rtp.dir/src/RTPSession.cpp.o
+/usr/bin/ranlib /home/hoson/laea_rtabmap/devel/lib/librtp.a

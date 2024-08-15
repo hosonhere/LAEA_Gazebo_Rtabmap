@@ -1,0 +1,8 @@
+prefix=/home/hoson/laea_rtabmap/install
+
+Name: laserscan_to_pointcloud
+Description: Description of laserscan_to_pointcloud
+Version: 1.0.0
+Cflags: -I${prefix}/include -I/usr/include -I/usr/include/eigen3
+Libs: -L${prefix}/lib -lpolar_to_cartesian_matrix_cache -ltf_rosmsg_eigen_conversions -ltf_collector -llaserscan_to_pointcloud
+Requires: dynamic_reconfigure geometry_msgs nav_msgs rosconsole roscpp sensor_msgs tf2 tf2_ros

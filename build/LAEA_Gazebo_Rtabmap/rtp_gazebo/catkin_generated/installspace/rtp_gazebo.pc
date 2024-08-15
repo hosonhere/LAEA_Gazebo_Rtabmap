@@ -1,0 +1,8 @@
+prefix=/home/hoson/laea_rtabmap/install
+
+Name: rtp_gazebo
+Description: Description of rtp_gazebo
+Version: 0.0.1
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lrtp_gazebo
+Requires: roscpp std_msgs cv_bridge message_filters sensor_msgs

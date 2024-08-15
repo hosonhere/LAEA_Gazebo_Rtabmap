@@ -1,0 +1,15 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~laser_scan_topics" : \b [str] Topics with LaserScans to assemble separated by + min: , default: /tilt_scan+/base_scan, max: 
+- \b "~pointcloud_publish_topic" : \b [str] Topic where the assembled scans will be published min: , default: assembled_pointcloud, max: 
+- \b "~number_of_scans_to_assemble_per_cloud" : \b [int] Number of LaserScans to assemble for each PointCloud2 published min: 1, default: 2, max: 2147483647
+- \b "~timeout_for_cloud_assembly" : \b [double] Maximum number of seconds for each cloud assembly min: 0.1, default: 1.0, max: std::numeric_limits<double>::infinity()
+- \b "~target_frame" : \b [str] Frame of reference in which the scans are going to be transformed min: , default: map, max: 
+- \b "~recovery_frame" : \b [str] Frame used to retrieve the current tf between [sensor -> recovery_frame] in order to use the last known tf between [recovery_frame -> target_frame]. If empty disables recovery min: , default: odom, max: 
+- \b "~min_range_cutoff_percentage_offset" : \b [double] Value that is going to be multiplied with the min_range reported with in the laser scan to remove points too far or too close min: 0.0, default: 1.05, max: std::numeric_limits<double>::infinity()
+- \b "~max_range_cutoff_percentage_offset" : \b [double] Value that is going to be multiplied with the max_range reported with in the laser scan to remove points too far or too close min: 0.0, default: 0.95, max: std::numeric_limits<double>::infinity()
+- \b "~include_laser_intensity" : \b [bool] Flag to include laser intensities in Pointcloud2 min: False, default: False, max: True
+- \b "~number_of_tf_queries_for_spherical_interpolation" : \b [int] Number of tfs used to performed laser spherical interpolation (if < 2 no interpolation is done and the tf in the middle of the scan time is used) min: -2147483648, default: 4, max: 2147483647
+

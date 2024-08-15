@@ -1,0 +1,8 @@
+prefix=/home/hoson/laea_rtabmap/devel
+
+Name: pose_utils
+Description: Description of pose_utils
+Version: 0.0.0
+Cflags: -I/home/hoson/laea_rtabmap/src/LAEA_Gazebo_Rtabmap/laea_planner/utils/pose_utils/include
+Libs: -L${prefix}/lib -lpose_utils
+Requires: 

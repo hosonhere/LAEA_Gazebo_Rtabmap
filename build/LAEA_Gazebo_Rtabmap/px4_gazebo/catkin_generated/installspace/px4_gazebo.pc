@@ -1,0 +1,8 @@
+prefix=/home/hoson/laea_rtabmap/install
+
+Name: px4_gazebo
+Description: Description of px4_gazebo
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
