@@ -15,7 +15,7 @@
     <arg name="est" default="ekf2"/>
 
     <!-- Simulation map: indoor_01  indoor_02 -->
-    <arg name="world" default="/home/hoson/laea_v2/src/LAEA/px4_gazebo/resource/sitl_gazebo/worlds/indoor_01.world"/>
+    <arg name="world" default="/home/hoson/laea_rtabmap/src/LAEA_Gazebo_Rtabmap/px4_gazebo/resource/sitl_gazebo/worlds/indoor_01.world"/>
     <arg name="gui" default="true"/>
     <!-- Launch Gazebo -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">

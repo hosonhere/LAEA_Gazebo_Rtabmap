@@ -1,0 +1,4 @@
+<launch>
+    <node name="RTP_Receiver" pkg="rtp_gazebo" type="RTPReceiver" output="screen"></node>
+    <!-- <node name="Synchronizer" pkg="rtp_gazebo" type="Synchronizer" output="screen"></node> -->
+</launch>

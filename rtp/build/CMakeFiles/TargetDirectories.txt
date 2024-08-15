@@ -1,0 +1,3 @@
+/home/james/project/RTPDevice/RTP/build/CMakeFiles/RTP.dir
+/home/james/project/RTPDevice/RTP/build/CMakeFiles/edit_cache.dir
+/home/james/project/RTPDevice/RTP/build/CMakeFiles/rebuild_cache.dir

@@ -38,9 +38,13 @@
 		<param name="sensor_model/max_range" value="100" />
 
 		<!-- data source to integrate (PointCloud2) -->
+		<!-- <remap from="cloud_in" to="/rtp/pointcloud/depth" />  -->
+		<!-- iris_0/laser_2d -->
+		<!-- <remap from="extra_cloud_in" to="/rtp/pointcloud/scan" />  -->
+
 		<remap from="cloud_in" to="/depth_scan_pointcloud" />
 		<!-- iris_0/laser_2d -->
-		<remap from="extra_cloud_in" to="/scan_pointcloud" />
+		<remap from="extra_cloud_in" to="/scan_pointcloud" /> 
 
 		<param name="pointcloud_min_z" value="0.01" />
 		<param name="pointcloud_max_z" value="4" />

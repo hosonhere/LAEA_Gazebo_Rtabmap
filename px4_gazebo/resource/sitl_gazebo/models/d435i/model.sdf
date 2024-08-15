@@ -32,6 +32,7 @@
       </visual>
 
       <sensor name="camera" type="depth">
+        <pose>0 0 0 0 0.2 0</pose>
         <camera name="depth">
           <horizontal_fov>1.5708</horizontal_fov>
           <image>

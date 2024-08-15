@@ -1,0 +1,3 @@
+<launch>
+    <node name="RTP_Sender" pkg="rtp_gazebo" type="RTPSender" output="screen"></node>
+</launch>

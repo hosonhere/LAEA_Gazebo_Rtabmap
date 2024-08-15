@@ -131,6 +131,12 @@ void MapROS::init() {
       MapROS::SyncPolicyCloudPose(100), *cloud_sub_, *pose_sub_));
   sync_cloud_pose_->registerCallback(boost::bind(&MapROS::cloudPoseCallback, this, _1, _2));
 
+  // depth_sub_->registerCallback([](const sensor_msgs::ImageConstPtr& msg) {
+  //   // Print all the data of the header
+  //   std::cout << "Header: " << msg->header << std::endl;
+    
+  // });
+
   map_start_time_ = ros::Time::now();
 
   if(use_new_thread){
@@ -539,8 +545,10 @@ void MapROS::depthPoseCallback(const sensor_msgs::ImageConstPtr& img,
   camera_pos_(0) = pose->pose.position.x;
   camera_pos_(1) = pose->pose.position.y;
   camera_pos_(2) = pose->pose.position.z;
-  if (!map_->isInMap(camera_pos_))  // exceed mapped region
+  if (!map_->isInMap(camera_pos_)){
+    // ROS_WARN("Camera position is out of map");
     return;
+  }  // exceed mapped region
 
   camera_q_ = Eigen::Quaterniond(pose->pose.orientation.w, pose->pose.orientation.x,
                                  pose->pose.orientation.y, pose->pose.orientation.z);
@@ -550,7 +558,7 @@ void MapROS::depthPoseCallback(const sensor_msgs::ImageConstPtr& img,
   cv_ptr->image.copyTo(*depth_image_);
 
   auto t1 = ros::Time::now();
-
+  // printf("depthPoseCallback\n");
   // generate point cloud, update map
   proessDepthImage();
   map_->inputPointCloud(point_cloud_, proj_points_cnt, camera_pos_);

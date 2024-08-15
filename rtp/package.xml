@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>rtp</name>
+  <version>0.0.1</version>
+  <description>The RTP package</description>
+
+  <maintainer email="youremail@example.com">Your Name</maintainer>
+  <license>BSD</license>
+
+  <!-- Catkin and system dependencies -->
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- Catkin packages dependencies -->
+  <depend>roscpp</depend>
+  <depend>rospy</depend>
+  <depend>std_msgs</depend>
+  <depend>visualization_msgs</depend>
+  <depend>cv_bridge</depend>
+  <depend>message_filters</depend>
+  <depend>sensor_msgs</depend>
+
+  <!-- System dependencies -->
+  <depend>pcl_ros</depend>
+  <depend>opencv</depend>
+  <depend>libavdevice-dev</depend>
+  <depend>libavfilter-dev</depend>
+  <depend>libavformat-dev</depend>
+  <depend>libavcodec-dev</depend>
+  <depend>libswresample-dev</depend>
+  <depend>libswscale-dev</depend>
+  <depend>libavutil-dev</depend>
+
+  <!-- Export information -->
+  <export>
+    <build_type>catkin</build_type>
+  </export>
+</package>

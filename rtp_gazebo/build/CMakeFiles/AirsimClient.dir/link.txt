@@ -1,0 +1,2 @@
+/usr/bin/ar qc libAirsimClient.a CMakeFiles/AirsimClient.dir/src/AirsimClient.cpp.o
+/usr/bin/ranlib libAirsimClient.a

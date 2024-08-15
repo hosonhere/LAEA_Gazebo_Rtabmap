@@ -33,7 +33,9 @@
     <!-- depth topic: depth image, 640x480 by default -->
     <!-- cloud topic: point cloud measurement  -->
     <!-- subscribe ONLY TO ONE of the two topics -->
-    <arg name="depth_topic" value="/camera/depth/image_raw"/>
+
+    <!-- Depth image from RTP package -->
+    <arg name="depth_topic" value="/rtp/depth/image_raw"/>
     <arg name="cloud_topic" value="/pcl_render_node/cloud"/>
 
     <!-- intrinsic params of the depth camera -->
@@ -45,8 +47,8 @@
     <!-- maximum velocity and acceleration the drone will reach -->
     <!-- <arg name="max_vel" value="2.0" />
     <arg name="max_acc" value="2.0" /> -->
-    <arg name="max_vel" value="1.0" />
-    <arg name="max_acc" value="1" />
+    <arg name="max_vel" value="2.0" />
+    <arg name="max_acc" value="2.0" />
 
     <!-- <arg name="max_vel" value="0.5" />
     <arg name="max_acc" value="0.5" /> -->

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libRTP.a CMakeFiles/RTP.dir/Codec/src/VideoCodec.cpp.o CMakeFiles/RTP.dir/Codec/src/DepthImageCodec.cpp.o CMakeFiles/RTP.dir/Codec/src/PointCloudCodec.cpp.o CMakeFiles/RTP.dir/Codec/src/Data.cpp.o CMakeFiles/RTP.dir/src/Stream.cpp.o CMakeFiles/RTP.dir/src/RTPSession.cpp.o
+/usr/bin/ranlib libRTP.a
