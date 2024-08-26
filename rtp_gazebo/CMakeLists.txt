@@ -15,6 +15,9 @@ find_package(catkin REQUIRED COMPONENTS
   cv_bridge
   message_filters
   sensor_msgs
+  quadrotor_msgs
+  nav_msgs
+  geometry_msgs
 )
 
 include_directories(${RTPDevice_DIR}/include)

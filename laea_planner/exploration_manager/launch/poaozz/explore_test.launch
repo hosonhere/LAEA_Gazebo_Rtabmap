@@ -14,7 +14,7 @@
   <arg name="init_z" value="1.0"/> 
 
   <!-- topic of your odometry such as VIO or LIO -->
-  <arg name="odom_topic" value="/mavros/local_position/odom" />
+  <arg name="odom_topic" value="/rtp/local_odom" />
 
   <!-- main algorithm params -->
   <include file="$(find exploration_manager)/launch/poaozz/algorithm_.xml">
@@ -29,7 +29,7 @@
     <arg name="init_z" value="$(arg init_z)"/> 
 
     <!-- sensor pose: transform of camera frame in the world frame -->
-    <arg name="sensor_pose_topic" value="/mavros/camera/pose"/>
+    <arg name="sensor_pose_topic" value="/rtp/pose"/>
     <!-- depth topic: depth image, 640x480 by default -->
     <!-- cloud topic: point cloud measurement  -->
     <!-- subscribe ONLY TO ONE of the two topics -->
@@ -47,8 +47,8 @@
     <!-- maximum velocity and acceleration the drone will reach -->
     <!-- <arg name="max_vel" value="2.0" />
     <arg name="max_acc" value="2.0" /> -->
-    <arg name="max_vel" value="2.0" />
-    <arg name="max_acc" value="2.0" />
+    <arg name="max_vel" value="1.0" />
+    <arg name="max_acc" value="1.0" />
 
     <!-- <arg name="max_vel" value="0.5" />
     <arg name="max_acc" value="0.5" /> -->

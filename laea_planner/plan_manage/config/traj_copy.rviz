@@ -30,6 +30,7 @@ Panels:
         - /PointCloud22
         - /PointCloud23
         - /Image2
+        - /Marker3
       Splitter Ratio: 0.5216138362884521
     Tree Height: 295
   - Class: rviz/Selection
@@ -50,7 +51,7 @@ Panels:
   - Class: rviz/Time
     Name: Time
     SyncMode: 0
-    SyncSource: depth
+    SyncSource: occupied_local
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -779,6 +780,14 @@ Visualization Manager:
       Transport Hint: raw
       Unreliable: false
       Value: true
+    - Class: rviz/Marker
+      Enabled: false
+      Marker Topic: /rtp/position_vis
+      Name: Marker
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: false
   Enabled: true
   Global Options:
     Background Color: 255; 255; 243
@@ -822,9 +831,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.9847966432571411
+      Pitch: 1.3047963380813599
       Target Frame: <Fixed Frame>
-      Yaw: 4.746435642242432
+      Yaw: 4.711435317993164
     Saved:
       - Class: rviz/ThirdPersonFollower
         Distance: 17.48538589477539

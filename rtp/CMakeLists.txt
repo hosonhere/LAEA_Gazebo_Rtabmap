@@ -37,9 +37,12 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   visualization_msgs
+  quadrotor_msgs
   cv_bridge
   message_filters
   sensor_msgs
+  nav_msgs
+  geometry_msgs
 )
 
 include_directories(
@@ -52,6 +55,10 @@ add_library(rtp STATIC
     "${RTPDevice_DIR}/rtp/Codec/src/DepthImageCodec.cpp"
     "${RTPDevice_DIR}/rtp/Codec/src/PointCloudCodec.cpp"
     "${RTPDevice_DIR}/rtp/Codec/src/CameraInfoCodec.cpp"
+    "${RTPDevice_DIR}/rtp/Codec/src/MarkerCodec.cpp"
+    "${RTPDevice_DIR}/rtp/Codec/src/CommandCodec.cpp"
+    "${RTPDevice_DIR}/rtp/Codec/src/OdomCodec.cpp"
+    "${RTPDevice_DIR}/rtp/Codec/src/PoseCodec.cpp"
     "${RTPDevice_DIR}/rtp/Codec/src/Data.cpp"
     "${RTPDevice_DIR}/rtp/src/Stream.cpp"
     "${RTPDevice_DIR}/rtp/src/RTPSession.cpp"

@@ -1,7 +1,10 @@
 <launch>
     <!-- Transform from camera_link to depth_camera_link-->
-    <node pkg="tf2_ros" type="static_transform_publisher" name="camera_link_to_depth_camera_link" 
-        args="0 0 0 -1.8 0 -1.5708 rtabmap_link depth_camera_link"/>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="rtabmap_link_to_rtabmap_camera_link" 
+        args="0.12 0 0 -1.5708 0 -1.5708 rtabmap_link rtabmap_camera_link"/>
+
+    <node pkg="tf2_ros" type="static_transform_publisher" name="rtabmap_link_to_depth_camera_link" 
+        args="0 0 0 -1.5708 0 -1.7708 rtabmap_link depth_camera_link"/>
 
     <node pkg="kinect_publisher" name="kinect_publisher" type="kinect_publisher.py" output="screen"/>
 </launch>

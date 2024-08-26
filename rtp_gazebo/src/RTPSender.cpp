@@ -12,6 +12,10 @@ VideoCodec *rgb_codec = new VideoCodec();
 DepthImageCodec *depth_codec = new DepthImageCodec();
 PointCloudCodec *pcloud_codec = new PointCloudCodec();
 CameraInfoCodec *camera_info_codec = new CameraInfoCodec();
+MarkerCodec *position_vis_codec = new MarkerCodec();
+CommandCodec *position_command_codec = new CommandCodec();
+OdomCodec *local_odom_codec = new OdomCodec();
+PoseCodec *pose_codec = new PoseCodec();
 
 RTP_Sender::RTP_Sender(){
     ros::NodeHandle nh;
@@ -21,7 +25,10 @@ RTP_Sender::RTP_Sender(){
     pcloud_sub_.reset(new message_filters::Subscriber<sensor_msgs::PointCloud2>(nh, "/depth_scan_pointcloud", 1));
     scan_sub_.reset(new message_filters::Subscriber<sensor_msgs::PointCloud2>(nh, "/scan_pointcloud", 1));
     map_pcloud_sub_.reset(new message_filters::Subscriber<sensor_msgs::PointCloud2>(nh, "/sdf_map/occupancy_all", 1));
-
+    position_vis_sub_.reset(new message_filters::Subscriber<visualization_msgs::Marker>(nh, "/planning/position_cmd_vis", 1));
+    position_command_sub_.reset(new message_filters::Subscriber<quadrotor_msgs::PositionCommand>(nh, "/position_cmd", 1));
+    local_odom_sub_.reset(new message_filters::Subscriber<nav_msgs::Odometry>(nh, "/mavros/local_position/odom", 1));
+    pose_sub_.reset(new message_filters::Subscriber<geometry_msgs::PoseStamped>(nh, "/mavros/camera/pose", 1));
 
     // Callback function
     depth_sub_->registerCallback(boost::bind(&RTP_Sender::depth_callback, this, _1));
@@ -30,6 +37,10 @@ RTP_Sender::RTP_Sender(){
     pcloud_sub_->registerCallback(boost::bind(&RTP_Sender::depth_point_cloud_callback, this, _1));
     scan_sub_->registerCallback(boost::bind(&RTP_Sender::scan_point_cloud_callback, this, _1));
     map_pcloud_sub_->registerCallback(boost::bind(&RTP_Sender::map_point_cloud_callback, this, _1));
+    position_vis_sub_->registerCallback(boost::bind(&RTP_Sender::position_vis_callback, this, _1));
+    position_command_sub_->registerCallback(boost::bind(&RTP_Sender::position_command_callback, this, _1));
+    local_odom_sub_->registerCallback(boost::bind(&RTP_Sender::local_odom_callback, this, _1));
+    pose_sub_->registerCallback(boost::bind(&RTP_Sender::pose_callback, this, _1));
 }
 
 RTP_Sender::~RTP_Sender(){
@@ -39,6 +50,10 @@ RTP_Sender::~RTP_Sender(){
     pcloud_sub_.reset();
     scan_sub_.reset();
     map_pcloud_sub_.reset();
+    position_vis_sub_.reset();
+    position_command_sub_.reset();
+    local_odom_sub_.reset();
+    pose_sub_.reset();
 }
 
 void RTP_Sender::process_depth_data(cv::Mat &depth_image, cv::Mat &depth_image_uint16){
@@ -90,6 +105,11 @@ void RTP_Sender::rgb_callback(const sensor_msgs::ImageConstPtr& rgb_msg){
 
 void RTP_Sender::depth_callback(const sensor_msgs::ImageConstPtr& depth_msg){
     // std::cout << "Depth image callback" <<" frame id: "<< depth_msg->header.frame_id << std::endl;
+
+    // Print Sent time
+    double current_time = ros::Time::now().toSec();
+    // std::cout<<"Time duration between each sent depth image: "<<current_time-last_depth_time<<std::endl;
+    last_depth_time = current_time;
 
     // Convert ROS image message to OpenCV image
     cv_bridge::CvImagePtr cv_ptr;
@@ -149,6 +169,34 @@ void RTP_Sender::map_point_cloud_callback(const sensor_msgs::PointCloud2ConstPtr
 
     // Send point cloud
     send_pcloud_stream(5, pcloud);
+}
+
+void RTP_Sender::position_vis_callback(const visualization_msgs::Marker::ConstPtr& position_vis_msg){
+    // std::cout << "Position visualization callback" << " frame id: "<< position_vis_msg->header.frame_id << std::endl;
+
+    // Send position visualization
+    send_position_vis_stream(6, *position_vis_msg);
+}
+
+void RTP_Sender::position_command_callback(const quadrotor_msgs::PositionCommand::ConstPtr& position_command_msg){
+    // std::cout << "Position command callback" << " frame id: "<< position_command_msg->header.frame_id << std::endl;
+
+    // Send position command
+    send_position_command_stream(7, *position_command_msg);
+}
+
+void RTP_Sender::local_odom_callback(const nav_msgs::Odometry::ConstPtr& local_odom_msg){
+    // std::cout << "Local odometry callback" << " frame id: "<< local_odom_msg->header.frame_id << std::endl;
+
+    // Send local odometry
+    send_local_odom_stream(8, *local_odom_msg);
+}
+
+void RTP_Sender::pose_callback(const geometry_msgs::PoseStamped::ConstPtr& pose_msg){
+    // std::cout << "Pose callback" << " frame id: "<< pose_msg->header.frame_id << std::endl;
+
+    // Send pose
+    send_pose_stream(9, *pose_msg);
 }
 
 void RTP_Sender::send_rgb_stream(int stream_id, cv::Mat rgb_image){
@@ -211,6 +259,66 @@ void RTP_Sender::send_camera_info_stream(int stream_id, sensor_msgs::CameraInfo 
     destroy_data(&data);
 }
 
+void RTP_Sender::send_position_vis_stream(int stream_id, visualization_msgs::Marker position_vis){
+    // std::cout << "Send position visualization stream" << std::endl;
+
+    int ret;
+    struct Data data;
+
+    ret = position_vis_codec->encode(position_vis, &data);
+    if(ret == 0){
+        session->send_data(stream_id, &data);
+        // std::cout << "send position visualization data" << std::endl;
+    }
+
+    destroy_data(&data);
+}
+
+void RTP_Sender::send_position_command_stream(int stream_id, quadrotor_msgs::PositionCommand position_command){
+    // std::cout << "Send position command stream" << std::endl;
+
+    int ret;
+    struct Data data;
+
+    ret = position_command_codec->encode(&data, position_command);
+    if(ret == 0){
+        session->send_data(stream_id, &data);
+        // std::cout << "send position command data" << std::endl;
+    }
+
+    destroy_data(&data);
+}
+
+void RTP_Sender::send_local_odom_stream(int stream_id, nav_msgs::Odometry local_odom){
+    // std::cout << "Send local odometry stream" << std::endl;
+
+    int ret;
+    struct Data data;
+
+    ret = local_odom_codec->encode(local_odom, &data);
+    if(ret == 0){
+        session->send_data(stream_id, &data);
+        // std::cout << "send local odometry data" << std::endl;
+    }
+
+    destroy_data(&data);
+}
+
+void RTP_Sender::send_pose_stream(int stream_id, geometry_msgs::PoseStamped pose){
+    // std::cout << "Send pose stream" << std::endl;
+
+    int ret;
+    struct Data data;
+
+    ret = pose_codec->encode(pose, &data);
+    if(ret == 0){
+        session->send_data(stream_id, &data);
+        // std::cout << "send pose data" << std::endl;
+    }
+
+    destroy_data(&data);
+}
+
 int main(int argc, char** argv){
 
     rgb_codec->init(
@@ -256,8 +364,29 @@ int main(int argc, char** argv){
         exit(0);
     }
 
+    if((ret = session->create_stream(
+        6, 22000, 23000, "position_visualization", "marker", 102, "sendonly")) != 0){
+        exit(0);
+    }
+
+    if((ret = session->create_stream(
+        7, 24000, 25000, "position_command", "command", 103, "sendonly")) != 0){
+        exit(0);
+    }
+
+    if((ret = session->create_stream(
+        8, 26000, 27000, "local_odom", "odom", 104, "sendonly")) != 0){
+        exit(0);
+    }
+
+    if((ret = session->create_stream(
+        9, 28000, 29000, "pose", "pose", 105, "sendonly")) != 0){
+        exit(0);
+    }
+
     ros::init(argc, argv, "rtp_sender");
     RTP_Sender client;
-    ros::spin();
+    ros::MultiThreadedSpinner spinner(6); 	// 开两个spinner并行处理
+    spinner.spin();
     return 0;
 }

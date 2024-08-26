@@ -6,5 +6,9 @@
 #include "DepthImageCodec.h"
 #include "PointCloudCodec.h"
 #include "CameraInfoCodec.h"
+#include "MarkerCodec.h"
+#include "CommandCodec.h"
+#include "OdomCodec.h"
+#include "PoseCodec.h"
 
 #endif
