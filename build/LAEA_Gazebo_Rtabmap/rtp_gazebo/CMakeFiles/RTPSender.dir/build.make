@@ -139,6 +139,8 @@ RTPSender_EXTERNAL_OBJECTS =
 /home/hoson/laea_rtabmap/devel/lib/rtp_gazebo/RTPSender: /opt/ros/noetic/lib/librosconsole_backend_interface.so
 /home/hoson/laea_rtabmap/devel/lib/rtp_gazebo/RTPSender: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
 /home/hoson/laea_rtabmap/devel/lib/rtp_gazebo/RTPSender: /usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0
+/home/hoson/laea_rtabmap/devel/lib/rtp_gazebo/RTPSender: /home/hoson/laea_rtabmap/devel/lib/libencode_msgs.so
+/home/hoson/laea_rtabmap/devel/lib/rtp_gazebo/RTPSender: /home/hoson/laea_rtabmap/devel/lib/libdecode_msgs.so
 /home/hoson/laea_rtabmap/devel/lib/rtp_gazebo/RTPSender: /opt/ros/noetic/lib/libroscpp_serialization.so
 /home/hoson/laea_rtabmap/devel/lib/rtp_gazebo/RTPSender: /opt/ros/noetic/lib/librostime.so
 /home/hoson/laea_rtabmap/devel/lib/rtp_gazebo/RTPSender: /usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0

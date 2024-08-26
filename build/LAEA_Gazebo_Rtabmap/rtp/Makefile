@@ -209,6 +209,33 @@ Codec/src/CameraInfoCodec.cpp.s:
 	cd /home/hoson/laea_rtabmap/build && $(MAKE) -f LAEA_Gazebo_Rtabmap/rtp/CMakeFiles/rtp.dir/build.make LAEA_Gazebo_Rtabmap/rtp/CMakeFiles/rtp.dir/Codec/src/CameraInfoCodec.cpp.s
 .PHONY : Codec/src/CameraInfoCodec.cpp.s
 
+Codec/src/CommandCodec.o: Codec/src/CommandCodec.cpp.o
+
+.PHONY : Codec/src/CommandCodec.o
+
+# target to build an object file
+Codec/src/CommandCodec.cpp.o:
+	cd /home/hoson/laea_rtabmap/build && $(MAKE) -f LAEA_Gazebo_Rtabmap/rtp/CMakeFiles/rtp.dir/build.make LAEA_Gazebo_Rtabmap/rtp/CMakeFiles/rtp.dir/Codec/src/CommandCodec.cpp.o
+.PHONY : Codec/src/CommandCodec.cpp.o
+
+Codec/src/CommandCodec.i: Codec/src/CommandCodec.cpp.i
+
+.PHONY : Codec/src/CommandCodec.i
+
+# target to preprocess a source file
+Codec/src/CommandCodec.cpp.i:
+	cd /home/hoson/laea_rtabmap/build && $(MAKE) -f LAEA_Gazebo_Rtabmap/rtp/CMakeFiles/rtp.dir/build.make LAEA_Gazebo_Rtabmap/rtp/CMakeFiles/rtp.dir/Codec/src/CommandCodec.cpp.i
+.PHONY : Codec/src/CommandCodec.cpp.i
+
+Codec/src/CommandCodec.s: Codec/src/CommandCodec.cpp.s
+
+.PHONY : Codec/src/CommandCodec.s
+
+# target to generate assembly for a file
+Codec/src/CommandCodec.cpp.s:
+	cd /home/hoson/laea_rtabmap/build && $(MAKE) -f LAEA_Gazebo_Rtabmap/rtp/CMakeFiles/rtp.dir/build.make LAEA_Gazebo_Rtabmap/rtp/CMakeFiles/rtp.dir/Codec/src/CommandCodec.cpp.s
+.PHONY : Codec/src/CommandCodec.cpp.s
+
 Codec/src/Data.o: Codec/src/Data.cpp.o
 
 .PHONY : Codec/src/Data.o
@@ -263,6 +290,60 @@ Codec/src/DepthImageCodec.cpp.s:
 	cd /home/hoson/laea_rtabmap/build && $(MAKE) -f LAEA_Gazebo_Rtabmap/rtp/CMakeFiles/rtp.dir/build.make LAEA_Gazebo_Rtabmap/rtp/CMakeFiles/rtp.dir/Codec/src/DepthImageCodec.cpp.s
 .PHONY : Codec/src/DepthImageCodec.cpp.s
 
+Codec/src/MarkerCodec.o: Codec/src/MarkerCodec.cpp.o
+
+.PHONY : Codec/src/MarkerCodec.o
+
+# target to build an object file
+Codec/src/MarkerCodec.cpp.o:
+	cd /home/hoson/laea_rtabmap/build && $(MAKE) -f LAEA_Gazebo_Rtabmap/rtp/CMakeFiles/rtp.dir/build.make LAEA_Gazebo_Rtabmap/rtp/CMakeFiles/rtp.dir/Codec/src/MarkerCodec.cpp.o
+.PHONY : Codec/src/MarkerCodec.cpp.o
+
+Codec/src/MarkerCodec.i: Codec/src/MarkerCodec.cpp.i
+
+.PHONY : Codec/src/MarkerCodec.i
+
+# target to preprocess a source file
+Codec/src/MarkerCodec.cpp.i:
+	cd /home/hoson/laea_rtabmap/build && $(MAKE) -f LAEA_Gazebo_Rtabmap/rtp/CMakeFiles/rtp.dir/build.make LAEA_Gazebo_Rtabmap/rtp/CMakeFiles/rtp.dir/Codec/src/MarkerCodec.cpp.i
+.PHONY : Codec/src/MarkerCodec.cpp.i
+
+Codec/src/MarkerCodec.s: Codec/src/MarkerCodec.cpp.s
+
+.PHONY : Codec/src/MarkerCodec.s
+
+# target to generate assembly for a file
+Codec/src/MarkerCodec.cpp.s:
+	cd /home/hoson/laea_rtabmap/build && $(MAKE) -f LAEA_Gazebo_Rtabmap/rtp/CMakeFiles/rtp.dir/build.make LAEA_Gazebo_Rtabmap/rtp/CMakeFiles/rtp.dir/Codec/src/MarkerCodec.cpp.s
+.PHONY : Codec/src/MarkerCodec.cpp.s
+
+Codec/src/OdomCodec.o: Codec/src/OdomCodec.cpp.o
+
+.PHONY : Codec/src/OdomCodec.o
+
+# target to build an object file
+Codec/src/OdomCodec.cpp.o:
+	cd /home/hoson/laea_rtabmap/build && $(MAKE) -f LAEA_Gazebo_Rtabmap/rtp/CMakeFiles/rtp.dir/build.make LAEA_Gazebo_Rtabmap/rtp/CMakeFiles/rtp.dir/Codec/src/OdomCodec.cpp.o
+.PHONY : Codec/src/OdomCodec.cpp.o
+
+Codec/src/OdomCodec.i: Codec/src/OdomCodec.cpp.i
+
+.PHONY : Codec/src/OdomCodec.i
+
+# target to preprocess a source file
+Codec/src/OdomCodec.cpp.i:
+	cd /home/hoson/laea_rtabmap/build && $(MAKE) -f LAEA_Gazebo_Rtabmap/rtp/CMakeFiles/rtp.dir/build.make LAEA_Gazebo_Rtabmap/rtp/CMakeFiles/rtp.dir/Codec/src/OdomCodec.cpp.i
+.PHONY : Codec/src/OdomCodec.cpp.i
+
+Codec/src/OdomCodec.s: Codec/src/OdomCodec.cpp.s
+
+.PHONY : Codec/src/OdomCodec.s
+
+# target to generate assembly for a file
+Codec/src/OdomCodec.cpp.s:
+	cd /home/hoson/laea_rtabmap/build && $(MAKE) -f LAEA_Gazebo_Rtabmap/rtp/CMakeFiles/rtp.dir/build.make LAEA_Gazebo_Rtabmap/rtp/CMakeFiles/rtp.dir/Codec/src/OdomCodec.cpp.s
+.PHONY : Codec/src/OdomCodec.cpp.s
+
 Codec/src/PointCloudCodec.o: Codec/src/PointCloudCodec.cpp.o
 
 .PHONY : Codec/src/PointCloudCodec.o
@@ -289,6 +370,33 @@ Codec/src/PointCloudCodec.s: Codec/src/PointCloudCodec.cpp.s
 Codec/src/PointCloudCodec.cpp.s:
 	cd /home/hoson/laea_rtabmap/build && $(MAKE) -f LAEA_Gazebo_Rtabmap/rtp/CMakeFiles/rtp.dir/build.make LAEA_Gazebo_Rtabmap/rtp/CMakeFiles/rtp.dir/Codec/src/PointCloudCodec.cpp.s
 .PHONY : Codec/src/PointCloudCodec.cpp.s
+
+Codec/src/PoseCodec.o: Codec/src/PoseCodec.cpp.o
+
+.PHONY : Codec/src/PoseCodec.o
+
+# target to build an object file
+Codec/src/PoseCodec.cpp.o:
+	cd /home/hoson/laea_rtabmap/build && $(MAKE) -f LAEA_Gazebo_Rtabmap/rtp/CMakeFiles/rtp.dir/build.make LAEA_Gazebo_Rtabmap/rtp/CMakeFiles/rtp.dir/Codec/src/PoseCodec.cpp.o
+.PHONY : Codec/src/PoseCodec.cpp.o
+
+Codec/src/PoseCodec.i: Codec/src/PoseCodec.cpp.i
+
+.PHONY : Codec/src/PoseCodec.i
+
+# target to preprocess a source file
+Codec/src/PoseCodec.cpp.i:
+	cd /home/hoson/laea_rtabmap/build && $(MAKE) -f LAEA_Gazebo_Rtabmap/rtp/CMakeFiles/rtp.dir/build.make LAEA_Gazebo_Rtabmap/rtp/CMakeFiles/rtp.dir/Codec/src/PoseCodec.cpp.i
+.PHONY : Codec/src/PoseCodec.cpp.i
+
+Codec/src/PoseCodec.s: Codec/src/PoseCodec.cpp.s
+
+.PHONY : Codec/src/PoseCodec.s
+
+# target to generate assembly for a file
+Codec/src/PoseCodec.cpp.s:
+	cd /home/hoson/laea_rtabmap/build && $(MAKE) -f LAEA_Gazebo_Rtabmap/rtp/CMakeFiles/rtp.dir/build.make LAEA_Gazebo_Rtabmap/rtp/CMakeFiles/rtp.dir/Codec/src/PoseCodec.cpp.s
+.PHONY : Codec/src/PoseCodec.cpp.s
 
 Codec/src/VideoCodec.o: Codec/src/VideoCodec.cpp.o
 
@@ -388,15 +496,27 @@ help:
 	@echo "... Codec/src/CameraInfoCodec.o"
 	@echo "... Codec/src/CameraInfoCodec.i"
 	@echo "... Codec/src/CameraInfoCodec.s"
+	@echo "... Codec/src/CommandCodec.o"
+	@echo "... Codec/src/CommandCodec.i"
+	@echo "... Codec/src/CommandCodec.s"
 	@echo "... Codec/src/Data.o"
 	@echo "... Codec/src/Data.i"
 	@echo "... Codec/src/Data.s"
 	@echo "... Codec/src/DepthImageCodec.o"
 	@echo "... Codec/src/DepthImageCodec.i"
 	@echo "... Codec/src/DepthImageCodec.s"
+	@echo "... Codec/src/MarkerCodec.o"
+	@echo "... Codec/src/MarkerCodec.i"
+	@echo "... Codec/src/MarkerCodec.s"
+	@echo "... Codec/src/OdomCodec.o"
+	@echo "... Codec/src/OdomCodec.i"
+	@echo "... Codec/src/OdomCodec.s"
 	@echo "... Codec/src/PointCloudCodec.o"
 	@echo "... Codec/src/PointCloudCodec.i"
 	@echo "... Codec/src/PointCloudCodec.s"
+	@echo "... Codec/src/PoseCodec.o"
+	@echo "... Codec/src/PoseCodec.i"
+	@echo "... Codec/src/PoseCodec.s"
 	@echo "... Codec/src/VideoCodec.o"
 	@echo "... Codec/src/VideoCodec.i"
 	@echo "... Codec/src/VideoCodec.s"
